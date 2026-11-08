@@ -40,6 +40,7 @@ class Reporte:
         return resultado
 
     def evolucion(self):
+        ciclos = self._tablas["ciclos"]
         if ciclos.empty:
             return "Aún no hay ciclos simulados."
         columnas = [("oxigeno", "Oxígeno"), ("agua", "Agua"),
@@ -141,7 +142,7 @@ class Reporte:
         return figura
 
     def graf_eventos(self):
-        """3) Pastel: distribución de los eventos ocurridos."""
+        """Pastel: distribución de los eventos ocurridos."""
         eventos = self._tablas["eventos"]
         if eventos.empty:
             raise ValueError("Aún no ocurrieron eventos para graficar.")
@@ -153,7 +154,7 @@ class Reporte:
         return figura
 
     def graf_colonos(self):
-        """4) Barras: productividad (aporte acumulado) por colono."""
+        """Barras: productividad (aporte acumulado) por colono."""
         colonos = self._tablas["colonos"]
         if colonos.empty:
             raise ValueError("No hay colonos para graficar.")
@@ -167,7 +168,7 @@ class Reporte:
         return figura
 
     def graf_histograma(self):
-        """5) Histograma: distribución de los recursos vitales por ciclo."""
+        """Histograma: distribución de los recursos vitales por ciclo."""
         ciclos = self._tablas["ciclos"]
         if ciclos.empty:
             raise ValueError("No hay ciclos simulados para graficar.")
